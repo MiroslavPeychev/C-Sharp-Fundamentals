@@ -1,15 +1,19 @@
-﻿using System;
-using System.Text.RegularExpressions;
-
-namespace _03._Chore_Wars
+﻿namespace _03._Chore_Wars
 {
-    class Program
+    using System;
+    using System.Text.RegularExpressions;
+
+    public class ChoreWars
     {
-        static void Main(string[] args)
+        public static void Main()
         {
-            var dishesRegex = new Regex(@"<[a-z0-9]+>");
-            var houseRegex = new Regex(@"\[[A-Z0-9]+\]");
-            var laundryRegex = new Regex(@"\{.+\}");
+            string dishesPattern = @"<[a-z0-9]+>";
+            string housePattern = @"\[[A-Z0-9]+\]";
+            string laundryPattern = @"\{.+\}";
+
+            var dishesRegex = new Regex(dishesPattern);
+            var houseRegex = new Regex(housePattern);
+            var laundryRegex = new Regex(laundryPattern);
             var doingTheDishesTime = 0;
             var cleaningTheHouseTime = 0;
             var doingTheLaundryTime = 0;
@@ -17,6 +21,7 @@ namespace _03._Chore_Wars
             while (true)
             {
                 var input = Console.ReadLine();
+
                 if (input == "wife is happy")
                 {
                     break;
@@ -57,6 +62,7 @@ namespace _03._Chore_Wars
             foreach (Match match in firstMatches)
             {
                 var currentMatch = match.ToString();
+
                 for (int i = 0; i < currentMatch.Length; i++)
                 {
                     if (char.IsDigit(currentMatch[i]))
@@ -65,6 +71,7 @@ namespace _03._Chore_Wars
                     }
                 }
             }
+
             return time;
         }
     }
