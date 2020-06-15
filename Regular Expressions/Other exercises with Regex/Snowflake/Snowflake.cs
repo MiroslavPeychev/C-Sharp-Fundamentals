@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.RegularExpressions;
-
-namespace Snowflake
+﻿namespace Snowflake
 {
-    class Program
+    using System;
+    using System.Text.RegularExpressions;
+    public class Snowflake
     {
-        static void Main(string[] args)
+        static void Main()
         {
             string lines = string.Empty;
             string surfacePattern = "^[^A-Za-z0-9]+$";
@@ -17,10 +14,11 @@ namespace Snowflake
             bool isAllFine = true;
             int coreLength = -1;
 
-            for (int index = 1; index <= 5; index += 1)
+            for (int index = 1; index <= 5; index ++)
             {
                 lines = Console.ReadLine();
                 string currentPattern = string.Empty;
+
                 if (index == 1 || index == 5)
                 {
                     currentPattern = surfacePattern;
@@ -35,6 +33,7 @@ namespace Snowflake
                 }
 
                 Regex regex = new Regex(currentPattern);
+
                 if (regex.IsMatch(lines) && index == 3)
                 {
                     coreLength = regex.Match(lines).Groups
@@ -44,8 +43,8 @@ namespace Snowflake
                 {
                     isAllFine = false;
                 }
-
             }
+
             if (isAllFine)
             {
                 Console.WriteLine("Valid");
