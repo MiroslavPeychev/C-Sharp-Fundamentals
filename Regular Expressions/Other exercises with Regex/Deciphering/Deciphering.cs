@@ -1,17 +1,18 @@
-﻿using System;
-namespace _02._Deciphering
+﻿namespace _02._Deciphering
 {
+    using System;
     using System.Text.RegularExpressions;
 
-    class Program
+    public class Deciphering
     {
-        static void Main(string[] args)
+        public static void Main()
         {
             string input = Console.ReadLine();
-            var replaceString = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
+            string[] replaceString = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
             Regex regex = new Regex(@"[d-z#|{}]+");
             string result = "";
-            var match = regex.Match(input);
+
+            Match match = regex.Match(input);
 
             if (input.Length != match.Length)
             {
@@ -29,6 +30,7 @@ namespace _02._Deciphering
             {
                 result = result.Replace(replaceString[0], replaceString[1]);
             }
+
             Console.WriteLine(result);
         }
     }
