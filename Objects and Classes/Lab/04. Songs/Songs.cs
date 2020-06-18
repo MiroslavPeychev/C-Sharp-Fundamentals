@@ -31,6 +31,14 @@
 
             string typeList = Console.ReadLine();
 
+            if (typeList == "all")
+            {
+                foreach (Song song in songs)
+                {
+                    Console.WriteLine(song.Name);
+                }
+            }
+
             List<Song> filteredSongs = songs
                 .Where(s => s.TypeList == typeList)
                 .ToList();
