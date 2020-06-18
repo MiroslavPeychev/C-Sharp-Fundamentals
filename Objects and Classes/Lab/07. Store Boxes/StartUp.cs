@@ -50,7 +50,7 @@
             {
                 Console.WriteLine(box.SerialNumber);
                 Console.WriteLine($"-- {box.Item.Name} - ${box.Item.Price:F2}: {box.ItemQuantity}");
-                Console.WriteLine($"--${box.PriceForABox:F2}");
+                Console.WriteLine($"-- ${box.PriceForABox:F2}");
             }
         }
 
