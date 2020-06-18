@@ -10,7 +10,7 @@
             int inputNumber = int.Parse(Console.ReadLine());
             BigInteger factorial = 1;
 
-            for (int i = 1; i < inputNumber; i++)
+            for (int i = 2; i <= inputNumber; i++)
             {
                 factorial = BigInteger.Multiply(factorial, i);
             }
