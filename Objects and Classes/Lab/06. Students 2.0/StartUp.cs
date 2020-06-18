@@ -45,6 +45,16 @@
 
                 inputLine = Console.ReadLine();
             }
+
+            string filterCity = Console.ReadLine();
+
+            foreach (Student student in students)
+            {
+                if (student.City == filterCity)
+                {
+                    Console.WriteLine($"{student.FirstName} {student.LastName} is {student.Age} years old.");
+                }
+            }
         }
 
         public class Student
@@ -58,19 +68,6 @@
             public string City { get; set; }
         }
 
-        private static bool IsStudentExisting(List<Student> students, string firstName, string lastName)
-        {
-
-            foreach (Student student in students)
-            {
-                if (student.FirstName == firstName && student.LastName == lastName)
-                {
-                    return true;
-                }
-            }
-
-            return false;
-        }
 
         static Student GetStudent(List<Student> students, string firstName, string lastName)
         {
@@ -85,6 +82,20 @@
             }
 
             return existingStudent;
+        }
+
+        private static bool IsStudentExisting(List<Student> students, string firstName, string lastName)
+        {
+
+            foreach (Student student in students)
+            {
+                if (student.FirstName == firstName && student.LastName == lastName)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }
